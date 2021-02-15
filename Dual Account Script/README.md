@@ -1,16 +1,24 @@
 # Dual Account Script
 
-**General**
+#### What is Dual Account?
+Using a Single Account deployment method, delays may be incurred in edge cases such as when a password is requested exactly when CPM is changing that password.
+The Dual Account deployment method eliminates any edge case delays that may be encountered when using a single account.
+Dual Accounts ensures no such delays are incurred when the application needs credentials because a password that is currently used by an application will never be changed. This is especially recommended in high load and critical applications.
+
+Dual Account ensures seamless, safe access to a system, database, or application. With this type of account rotation, there are no blackout periods when passwords expire.
+For more information, see [here](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-CP/Latest/en/Content/CP%20and%20ASCP/cv_Managing-Dual-Accounts.htm?TocPath=Administration%7CCredential%20Provider%7CAccounts%20and%20Safes%7CManage%20Dual%20Accounts%7C_____0).
+
+## General
 
 This script enables fully automatic configuration for the dual account feature.
 
-**Requirements**
+## Requirements
 - This scripts can run against Vault and PVWA v12.1 and up.
 - This script is supported for CP v12.0 and up.
 - The script is used to create and configure new accounts as dual account. It does not configure existing account as dual account.
   - Verify the accounts you wish to configure as dual account does not exist in the Vault you are working with.
 
- **Limitations**
+## Limitations
  
 This script supports only platforms with the following properties:
    - Address
@@ -19,6 +27,8 @@ This script supports only platforms with the following properties:
    - Account
    
 If your platform has other mandatory properties, [configure dual account manually](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-CP/Latest/en/Content/CP%20and%20ASCP/cv_Automatic_dual_account.htm?tocpath=Administration%7CCredential%20Provider%7CAccounts%20and%20Safes%7CManage%20Dual%20Accounts%7C_____1)
+
+## Use Dual Account Script
 
 ### Step 1 - Fill in Policy-DualAccount-Creation.json
 **Policy-DualAccount-Creation.json** is the configuration file for the script that creates dual accounts. 
@@ -87,3 +97,5 @@ You can view Dual Account creation script's progress and failures in the Console
 - Trigger a CPM rotation for one of the accounts or wait for this to happen on it's own.
 - Once again, using the dual account pair's virtual username, retrieve the dual account pair's password.
 - Verify the currently active account is the account that was inactive before. 
+
+
