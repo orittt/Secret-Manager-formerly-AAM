@@ -1,4 +1,4 @@
-# Dual Accounts
+# Dual Account Automation Script
 
 **General**
 
