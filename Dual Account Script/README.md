@@ -38,7 +38,7 @@ Before you run the script fill in the required details as follows:
 
 **The following table list the parameters in this file:**
 
-| Parameter              | Description                                                                                                                                                                  | Required | Acceptable Value | Default Value    | 
+| Parameter              | Description                                                                                                                                                                  | Mandatory | Acceptable Value | Default Value    | 
 | :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :------- | :--------------- | :--------------- |
 | PVWAURL                | The URL address of your PVWA.                                                                                                                                                | **Yes**  | URL              | -                |
 | PlatformSampleTemplate | The full path of the sample platform for Rotational Groups, including the zip file name (Rotational Group.zip).                                                              | **Yes**  | Full file path   | -                |
