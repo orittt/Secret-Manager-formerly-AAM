@@ -1,7 +1,8 @@
 # Cyberark Secret Manager (formerly AAM)
 
 ## Overview  
-CyberArk’s Secret Manager Credential Providers and Conjur Enterprise, part of the Privileged Access Security solution, is used to eliminate hard coded application credentials embedded in applications, scripts or configuration files, and allows these highly-sensitive passwords to be centrally stored, logged and managed within the Vault. 
+CyberArk’s Secret Manager Credential Providers and Conjur Enterprise, part of the Privileged Access Security solution, is used to eliminate hard coded application credentials embedded in applications, scripts or configuration files, and allows these highly-sensitive passwords to be centrally stored, logged and managed within the Vault.
+
 This repository of downloadable scripts enable users to automate key processes across their Credential Providers and Conjur implementation.
 
 These scripts are certified and fully supported by Cyberark.
