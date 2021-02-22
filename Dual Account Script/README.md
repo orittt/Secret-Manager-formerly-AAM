@@ -14,7 +14,6 @@ This script enables fully automatic configuration for the dual account feature.
 
 ## Requirements
 - This scripts can run against Vault and PVWA v12.1 and up.
-- This script is supported for CP v12.0 and up.
 - The script is used to create and configure new accounts as dual account. It does not configure existing account as dual account.
   - Verify the accounts you wish to configure as dual account does not exist in the Vault you are working with.
 
