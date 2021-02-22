@@ -5,7 +5,6 @@ CyberArk’s Secret Manager Credential Providers and Conjur Enterprise, part of 
 
 This repository of downloadable scripts enable users to automate key processes across their Credential Providers and Conjur implementation.
 
-These scripts are certified and fully supported by Cyberark.
 
 ## The Main Goal
 Enable Secret Manager (AAM) users to automate and simplify application management tasks via REST APIs such as configuring dual account.
