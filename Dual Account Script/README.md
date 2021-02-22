@@ -53,13 +53,6 @@ Before you run the script fill in the required details as follows:
 | LogVerboseLevel        | When enabled, more information will be written to the log file. This includes more information on the technical flow.                                                        | No       | Boolean          |  False           |
 | DisableSSLVerify       | When enabled, SSL verification will be disabled and self-signed SSL certificates will be bypassed. It is not recommended.                                                    | No       | Boolean          |  False           |
 
-**Note:**
-If you want to use a different Rotational Group platform for your dual account pair than the one that already exist, do the following:
-  - Configure the PlatformsSampleTemplate to be the default one you got from the script's folder (no need to configure GracePeriod value).
-  - Continue with **Step 2 - Run the Dual Account Creation script** below
-  - When the script has finished running, log on to the PVWA as admin.
-  - Duplicate the Rotational Group platform and change **GracePeriod** as desired.
-  - For each dual account pair that should work with the new Rotational Group, and update its Rotational Group Platform with the duplicated platform.
 
 ### Step 2 - Run the Dual Account Creation script
 The Dual Account Creation script (DualAccount-Creation.ps1) creates and performs the necessary changes on the platform and in the account properties to enable the accounts to work as a dual accounts pair.
@@ -88,6 +81,13 @@ or
 
 **Note:**
 You can view Dual Account creation script's progress and failures in the Console and in the Log file (by default named Log-DualAccount.log). 
+
+**Optional - Use a different Rotational Group platform for your dual account pair**
+If you want to use a different rotation group platform than the default one, foolow these steps:
+  - When the script has finished running, log on to the PVWA as admin.
+  - Duplicate the Rotational Group platform and change **GracePeriod** as desired.
+  - For each dual account pair that should work with the new Rotational Group, and update its Rotational Group Platform with the duplicated platform
+
 
 ### Step 3 - Test your dual account pair
 - In PVWA > Accounts > Accounts Details, select your dual account pair.
