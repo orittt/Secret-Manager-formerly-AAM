@@ -82,8 +82,8 @@ or
 **Note:**
 You can view Dual Account creation script's progress and failures in the Console and in the Log file (by default named Log-DualAccount.log). 
 
-**Optional - Use a different Rotational Group platform for your dual account pair**
-If you want to use a different rotation group platform than the default one, foolow these steps:
+#### Optional - Use a different Rotational Group platform for your dual account pair
+If you want to use a different rotation group platform than the default one, follow these steps:
   - When the script has finished running, log on to the PVWA as admin.
   - Duplicate the Rotational Group platform and change **GracePeriod** as desired.
   - For each dual account pair that should work with the new Rotational Group, and update its Rotational Group Platform with the duplicated platform
