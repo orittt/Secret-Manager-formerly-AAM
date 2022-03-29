@@ -141,4 +141,4 @@ If you want to use a different rotation group platform than the default one, fol
 - Using the dual account pair's virtual username, retrieve the dual account pair's password. The password retrieved should be the password of the active account.
 - Trigger a CPM rotation for one of the accounts or wait for this to happen on it's own.
 - Once again, using the dual account pair's virtual username, retrieve the dual account pair's password.
-- Verify the currently active account is the account that was inactive before. 
+- Verify the currently active account is the account that was inactive before.
