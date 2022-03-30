@@ -26,7 +26,7 @@ param
 $global:ScriptVersion = "1.0"    
 $global:ScriptLocation = Split-Path -Parent $MyInvocation.MyCommand.Path
 $global:ParamsObj = @{}
-$global:DefualtParamsObj = 
+$global:DefaultParamsObj = 
     @{ 
         LogFileFullPath = Join-Path ($ScriptLocation) "Logs-DualAccount.log"; 
         AccountDelimiter = "@"; 
@@ -54,8 +54,8 @@ $global:URL_ImportPlatforms = $null
 $global:URL_ExportPlatforms = $null
 $global:URL_GetGroupPlatforms = $null
 $global:URL_GetRotationalGroupPlatforms = $null
-$global:URL_DeleteGroupPlatforms = $nul
-$global:URL_DeleteRotationalGroupPlatforms = $nul
+$global:URL_DeleteGroupPlatforms = $null
+$global:URL_DeleteRotationalGroupPlatforms = $null
 $global:URL_Accounts = $null
 $global:URL_AccountsDetails = $null
 $global:URL_AccountGroups = $null
@@ -92,7 +92,7 @@ function Write-LogMessage
     }
     else
     {
-        $LogFile = $global:DefualtParamsObj.LogFileFullPath
+        $LogFile = $global:DefaultParamsObj.LogFileFullPath
     }
 
     $InDebug = $global:ParamsObj.LogDebugLevel
@@ -250,14 +250,14 @@ function Set-ValueInParamsObj
 }
 
 # @FUNCTION@ ======================================================================================================================
-# Name...........: Set-DefualtValueInParamsObj
-# Description....: Set defualt value in ParamsObj item
+# Name...........: Set-DefaultValueInParamsObj
+# Description....: Set default value in ParamsObj item
 # Parameters.....: None
 # Return Values..: None
 # =================================================================================================================================
-function Set-DefualtValueInParamsObj
+function Set-DefaultValueInParamsObj
 {
-    foreach ( $item in $global:DefualtParamsObj.GetEnumerator() ) 
+    foreach ( $item in $global:DefaultParamsObj.GetEnumerator() ) 
     {        
         Set-ValueInParamsObj -name $item.Name -value $item.Value -override $false   
     }
@@ -352,7 +352,7 @@ function Verify-GracePeriodParam
         if ( !( This-Numeric -value $value ) -or ( This-ParameterEmptyOrWhiteSpace -value $value ) -or ( 0 -eq $value ) )
         {
            Write-LogMessage -Type Warning -Msg "The value of Grace Period parameter is not valid, the parameter will get the default value 6"
-           $global:ParamsObj.GracePeriod =  $global:DefualtParamsObj.GracePeriod
+           $global:ParamsObj.GracePeriod =  $global:DefaultParamsObj.GracePeriod
         }
     } 
 }
@@ -374,7 +374,7 @@ function Verify-LogFilePathParam
 
         if ( This-ParameterEmptyOrWhiteSpace -value $value )
         {
-           $global:ParamsObj.LogFileFullPath =  $global:DefualtParamsObj.LogFileFullPath
+           $global:ParamsObj.LogFileFullPath =  $global:DefaultParamsObj.LogFileFullPath
         }
     } 
 }
@@ -874,7 +874,7 @@ function Update-GracePeriodParam
 
         $platformZipPath = $(Join-Path -Path $ENV:Temp $(split-path $platformPath -Leaf)) 
 
-        Update-ParamInINIFile -platformZipPath $platformZipPath -name "GracePeriod" -currentValue $global:DefualtParamsObj.GracePeriod -requiredValue $global:ParamsObj.GracePeriod
+        Update-ParamInINIFile -platformZipPath $platformZipPath -name "GracePeriod" -currentValue $global:DefaultParamsObj.GracePeriod -requiredValue $global:ParamsObj.GracePeriod
     }
     catch
     {
@@ -1662,8 +1662,8 @@ function Initialization
     # Verify Log File Full Path parameter
     Verify-LogFilePathParam
      
-    # Set a defualt value if needed
-    Set-DefualtValueInParamsObj
+    # Set a default value if needed
+    Set-DefaultValueInParamsObj
 
     # Verify empty or white space parameters
     foreach ( $item in $global:ParamsObj.GetEnumerator() ) 
@@ -1745,7 +1745,7 @@ try
     {      
         Import-Platform -platformPath $( Update-PolicyTypeParam -platformID "RotationalGroup" -currentValue "RotationalGroup" -requiredValue "group" -id $id )
     }
-    elseif ( $global:ParamsObj.GracePeriod -ne $global:DefualtParamsObj.GracePeriod )
+    elseif ( $global:ParamsObj.GracePeriod -ne $global:DefaultParamsObj.GracePeriod )
     {
         Import-Platform -platformPath $( Update-GracePeriodParam -platformPath $global:ParamsObj.PlatformSampleTemplate )
     }
