@@ -43,7 +43,7 @@ Before you run the script fill in the required details as follows:
 | PlatformSampleTemplate | The full path of the sample platform for Rotational Groups, including the zip file name (Rotational Group.zip).                                                              | **Yes**  | Full file path   | -                |
 | PlatformID             | The ID of the platform for your dual account pair.                                                                                                                           | **Yes**  | String           | -                |
 | VirtualUserName        | The name that the application uses to request access to the dual account pair secrets.                                                                                       | **Yes**  | String           | -                | 
-| SafeName               | The Safe used to store the dual account pair.                                                                                                                                | **Yes**  | String           | -                |
+| SafeName               | Existing safe used to store the dual account pair.                                                                                                                                | **Yes**  | String           | -                |
 | GroupName              | The group for the dual account pair - used for rotating the accounts.                                                                                                        | **Yes**  | String           |  -               |
 | AccountDelimiter       | The character used to separate the properties of the accounts. Make sure this character is not used in any of the properties.                                                | No       | Char             |  @               |
 | ListDelimiter          | The character used to separate the two accounts in the pair. Make sure this character is not used in either of the account properties.                                       | No       | Char             |  ;               |
@@ -57,8 +57,8 @@ Before you run the script fill in the required details as follows:
 - Fill in Policy-DualAccount-Creation.json mandatory properties
 ```powershell
 {
-	"PVWAURL":"https://AMPM-1B46640887.ampm.cyberng.com/passwordvault",
-	"PlatformSampleTemplate":"C:\\Dual-Accounts-Example\\Rotation Groups.zip",
+	"PVWAURL":"https://<PVWA URL>/passwordvault",
+	"PlatformSampleTemplate":"C:\Example\Rotation Groups.zip",
 	"PlatformID":"WinDesktopLocal",
 	"VirtualUserName":"DualAccount",
 	"SafeName":"Safe1",
@@ -70,14 +70,14 @@ Before you run the script fill in the required details as follows:
 
 ```powershell
 {
-	"PVWAURL":"https://AMPM-1B46640887.ampm.cyberng.com/passwordvault",
-	"PlatformSampleTemplate":"C:\\Dual-Accounts-Example\\Rotation Groups.zip",
+	"PVWAURL":"https://<PVWA URL>/passwordvault",
+	"PlatformSampleTemplate":"C:\Example\Rotation Groups.zip",
 	"PlatformID":"WinDesktopLocal",
 	"VirtualUserName":"DualAccount",
 	"SafeName":"Safe1",
 	"GroupName":"DualAccountGroup",
 	"GracePeriod":"3",
-	"LogFileFullPath":"C:\\Dual-Accounts-Example\\Logs\\Logs-DualAccount.log",
+	"LogFileFullPath":"C:\Example\Logs\Logs-DualAccount.log",
 	"AccountDelimiter":"#",
 	"ListDelimiter":",",
 	"LogDebugLevel":true,
@@ -114,18 +114,21 @@ or
 You can view Dual Account creation script's progress and failures in the Console and in the Log file (by default named Log-DualAccount.log). 
 
 **Examples:**
-- Run the Dual Account Creation script with diffrenet values
+- Run the Dual Account Creation script with mandatory parameters
 ```powershell
-PS C:\Dual-Accounts-Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1@1.1.1.1@1234;user2@1.1.1.1@1234"
+PS C:\Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1@1.1.1.1@1234;user2@1.1.1.1@1234"
 ```
+- Run the Dual Account Creation script with 'AuthenticationType' parameter
 ```powershell
-PS C:\Dual-Accounts-Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1@1.1.1.1@1234;user2@1.1.1.1@1234" -AuthenticationType cyberark
+PS C:\Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1@1.1.1.1@1234;user2@1.1.1.1@1234" -AuthenticationType cyberark
 ```
+- Run the Dual Account Creation script with 'ConfigFileFullPath' parameter
 ```powershell
-PS C:\Dual-Accounts-Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1@1.1.1.1@1234;user2@1.1.1.1@1234" -ConfigFileFullPath C:\\Dual-Accounts-Example\\Config\\Policy-DualAccount-Creation.json
+PS C:\Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1@1.1.1.1@1234;user2@1.1.1.1@1234" -ConfigFileFullPath C:\\Dual-Accounts-Example\\Config\\Policy-DualAccount-Creation.json
 ```
+- Run the Dual Account Creation script with different account's delimiters
 ```powershell
-PS C:\Dual-Accounts-Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1#1.1.1.1#1234,user2#1.1.1.1#1234"
+PS C:\Example>> .\DualAccount-Creation.ps1 -PASUserName Administrator -PASPassword ******** -AccountList "user1#1.1.1.1#1234,user2#1.1.1.1#1234"
 ```
 
 #### Optional - Use a different Rotational Group platform for your dual account pair
